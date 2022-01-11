@@ -1,0 +1,953 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-01-11T15:01:07+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">禾肠不想改变自己</title><subtitle>禾肠的个人博客，采用Jekyll工具生成。</subtitle><entry><title type="html">安装jekyll时遇到的问题!</title><link href="http://localhost:4000/jekyll/update/2022/01/04/%E5%AE%89%E8%A3%85jekyll%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98.html" rel="alternate" type="text/html" title="安装jekyll时遇到的问题!" /><published>2022-01-04T09:38:08+08:00</published><updated>2022-01-04T09:38:08+08:00</updated><id>http://localhost:4000/jekyll/update/2022/01/04/%E5%AE%89%E8%A3%85jekyll%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2022/01/04/%E5%AE%89%E8%A3%85jekyll%E6%97%B6%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98.html">&lt;p&gt;我在macos安装jekyll遇到了不少问题，由于国内的资料相对少一些，花费了不少的力气最终成功生成jekyll网站，记录其中碰到的问题供大家分享。&lt;/p&gt;
+
+&lt;h2 id=&quot;安装jekyll时遇到的问题&quot;&gt;安装jekyll时遇到的问题&lt;/h2&gt;
+
+&lt;p&gt;官方Jekyll： http://jekyllrb.com/docs/&lt;/p&gt;
+
+&lt;p&gt;我的电脑时mac air m1， 在直接按照官方教程安装时并不能成功安装Jekyll，仔细查看官方文档，按照文档要求尝试。 自己安装过成中的记录，供大家参考，希望对你有所帮助。&lt;/p&gt;
+
+&lt;h3 id=&quot;尝试重新安装ruby&quot;&gt;尝试重新安装ruby&lt;/h3&gt;
+
+&lt;p&gt;m1的电脑中直接有安装好的ruby，不知道时我安装其他软件时安装的还是自带的，由于现在jekyll安装失败，我按照官方文档重新安装ruby。&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air ~ % brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ruby
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;在install过程中报错，报错如下：&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;==&amp;gt;&lt;/span&gt; Installing ruby dependency: readline
+&lt;span class=&quot;o&quot;&gt;==&amp;gt;&lt;/span&gt; Pouring readline-8.1.arm64_big_sur.bottle.tar.gz
+&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt;: Error opening archive: Failed to open &lt;span class=&quot;s1&quot;&gt;&apos;/Users/yiwen/Library/Caches/Homebrew/downloads/ad46a5a60b2948a91c235d8e24bb732d859473901d6b368f1810770ddd7048cb--readline-8.1.arm64_big_sur.bottle.tar.gz&apos;&lt;/span&gt;
+Error: Failure &lt;span class=&quot;k&quot;&gt;while &lt;/span&gt;executing&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--extract&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--no-same-owner&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--file&lt;/span&gt; /Users/yiwen/Library/Caches/Homebrew/downloads/ad46a5a60b2948a91c235d8e24bb732d859473901d6b368f1810770ddd7048cb--readline-8.1.arm64_big_sur.bottle.tar.gz &lt;span class=&quot;nt&quot;&gt;--directory&lt;/span&gt; /private/tmp/d20211212-53159-1qiwacs&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; exited with 1. Here&lt;span class=&quot;s1&quot;&gt;&apos;s the output:
+tar: Error opening archive: Failed to open &apos;&lt;/span&gt;/Users/yiwen/Library/Caches/Homebrew/downloads/ad46a5a60b2948a91c235d8e24bb732d859473901d6b368f1810770ddd7048cb--readline-8.1.arm64_big_sur.bottle.tar.gz&lt;span class=&quot;s1&quot;&gt;&apos;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;看着错误的意思是说readline安装失败，我尝试自己直接先安装好readline这个东西，再尝试install ruby&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air ~ % brew install readline
+
+==&amp;gt; Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/readline-8.
+#=#=#                                                                         
+curl: (22) The requested URL returned error: 404 
+Warning: Bottle missing, falling back to the default domain...
+==&amp;gt; Downloading https://ghcr.io/v2/homebrew/core/readline/manifests/8.1
+Already downloaded: /Users/yiwen/Library/Caches/Homebrew/downloads/b37133a77c8680447162faf218b59fb36ee5d3e1926fbbff244e43581ab9128a--readline-8.1.bottle_manifest.json
+==&amp;gt; Downloading https://ghcr.io/v2/homebrew/core/readline/blobs/sha256:940e7c2b8
+Already downloaded: /Users/yiwen/Library/Caches/Homebrew/downloads/74e969cb4f00090baf5eecd3fd0ffd8a26f94b939f5df529ff18f1e29c3e0d7e--readline--8.1.arm64_big_sur.bottle.tar.gz
+==&amp;gt; Pouring readline--8.1.arm64_big_sur.bottle.tar.gz
+==&amp;gt; Caveats
+readline is keg-only, which means it was not symlinked into /opt/homebrew,
+because macOS provides BSD libedit.
+
+For compilers to find readline you may need to set:
+  export LDFLAGS=&quot;-L/opt/homebrew/opt/readline/lib&quot;
+  export CPPFLAGS=&quot;-I/opt/homebrew/opt/readline/include&quot;
+
+==&amp;gt; Summary
+🍺  /opt/homebrew/Cellar/readline/8.1: 48 files, 1.7MB
+==&amp;gt; `brew cleanup` has not been run in 30 days, running now...
+Removing: /Users/yiwen/Library/Logs/Homebrew/nghttp2... (64B)
+Removing: /Users/yiwen/Library/Logs/Homebrew/libuv... (64B)
+Removing: /Users/yiwen/Library/Logs/Homebrew/jemalloc... (64B)
+Removing: /Users/yiwen/Library/Logs/Homebrew/brotli... (64B)
+Removing: /Users/yiwen/Library/Logs/Homebrew/icu4c... (64B)
+Removing: /Users/yiwen/Library/Logs/Homebrew/c-ares... (64B)
+Removing: /Users/yiwen/Library/Logs/Homebrew/yarn... (64B)
+Removing: /Users/yiwen/Library/Logs/Homebrew/openssl@1.1... (64B)
+Removing: /Users/yiwen/Library/Logs/Homebrew/node... (64B)
+Removing: /Users/yiwen/Library/Logs/Homebrew/libev... (64B)
+Pruned 0 symbolic links and 3 directories from /opt/homebrew
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;readline安装成功，再次尝试安装Ruby&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air ~ % brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ruby    
+&lt;span class=&quot;o&quot;&gt;==&amp;gt;&lt;/span&gt; Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/ruby-3.0.2.
+&lt;span class=&quot;c&quot;&gt;#=#=#                                                                         &lt;/span&gt;
+curl: &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;22&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; The requested URL returned error: 404 
+Warning: Bottle missing, falling back to the default domain...
+&lt;span class=&quot;o&quot;&gt;==&amp;gt;&lt;/span&gt; Downloading https://ghcr.io/v2/homebrew/core/ruby/manifests/3.0.2
+Already downloaded: /Users/yiwen/Library/Caches/Homebrew/downloads/85c74df46ef2c4d6020c3111842fdb3abec0622e0d853e84010d055a6be0174e--ruby-3.0.2.bottle_manifest.json
+&lt;span class=&quot;o&quot;&gt;==&amp;gt;&lt;/span&gt; Downloading https://ghcr.io/v2/homebrew/core/ruby/blobs/sha256:7fefa5ed8f97a
+Already downloaded: /Users/yiwen/Library/Caches/Homebrew/downloads/d26b88e82f458db5dbda4206cfe1f8d87491ff2dc6785e1bdcb737c8cc647089--ruby--3.0.2.arm64_big_sur.bottle.tar.gz
+&lt;span class=&quot;o&quot;&gt;==&amp;gt;&lt;/span&gt; Pouring ruby--3.0.2.arm64_big_sur.bottle.tar.gz
+&lt;span class=&quot;o&quot;&gt;==&amp;gt;&lt;/span&gt; Caveats
+By default, binaries installed by gem will be placed into:
+  /opt/homebrew/lib/ruby/gems/3.0.0/bin
+
+You may want to add this to your PATH.
+
+ruby is keg-only, which means it was not symlinked into /opt/homebrew,
+because macOS already provides this software and installing another version &lt;span class=&quot;k&quot;&gt;in
+&lt;/span&gt;parallel can cause all kinds of trouble.
+
+If you need to have ruby first &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;your PATH, run:
+  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;export PATH=&quot;/opt/homebrew/opt/ruby/bin:$PATH&quot;&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; ~/.zshrc
+
+For compilers to find ruby you may need to &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;:
+  &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LDFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;-L/opt/homebrew/opt/ruby/lib&quot;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CPPFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;-I/opt/homebrew/opt/ruby/include&quot;&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;==&amp;gt;&lt;/span&gt; Summary
+🍺  /opt/homebrew/Cellar/ruby/3.0.2: 16,390 files, 40.4MB
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;安装ruby成功了。&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air ~ % &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$SHELL&lt;/span&gt;
+
+/bin/zsh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Add the brew ruby and gems path to your shell configuration:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# If you&apos;re using Zsh&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;export PATH=&quot;/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:$PATH&quot;&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; ~/.zshrc
+
+&lt;span class=&quot;c&quot;&gt;# If you&apos;re using Bash&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;export PATH=&quot;/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:$PATH&quot;&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; ~/.bash_profile
+
+&lt;span class=&quot;c&quot;&gt;# Unsure which shell you are using? Type&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$SHELL&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;上面是官方的，然而我发现我的m1中并没有 /usr/local/opt/ruby这个目录，百度尝试用别人的方法尝试（在homebrew目录中有ruby沐目录）&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air bin % echo &apos;export PATH=&quot;/opt/homebrew/opt/ruby/bin:$PATH&quot;&apos; &amp;gt;&amp;gt; ~/.zshrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;关闭terminal，重新打开。查看ruby版本&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air ~ % ruby &lt;span class=&quot;nt&quot;&gt;-version&lt;/span&gt;    &lt;span class=&quot;c&quot;&gt;#没配置之前ruby我记得是2.几的版本，当时忘记记录了 ruby的目录也变成上面配置的目录了。我看到希望了，希望今天可以再十点之前完成，睡个好觉。&lt;/span&gt;
+ruby 3.0.2p107 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2021-07-07 revision 0db68f0233&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;arm64-darwin20]
+&lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt;:1:in &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&amp;lt;main&amp;gt;&lt;span class=&quot;s1&quot;&gt;&apos;: undefined local variable or method `rsion&apos;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;main:Object &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;NameError&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+yiwen@yiwens-MacBook-Air ~ % which ruby
+/opt/homebrew/opt/ruby/bin/ruby
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;尝试安装jekyll&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air ~ % gem &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--user-install&lt;/span&gt; bundler jekyll
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+Fetching bundler-2.2.33.gem
+WARNING:  You don&lt;span class=&quot;s1&quot;&gt;&apos;t have /Users/yiwen/.gem/ruby/3.0.0/bin in your PATH,
+	  gem executables will not run.
+Successfully installed bundler-2.2.33
+Parsing documentation for bundler-2.2.33
+Installing ri documentation for bundler-2.2.33
+Done installing documentation for bundler after 1 seconds
+Fetching unicode-display_width-1.8.0.gem
+Fetching terminal-table-2.0.0.gem
+Fetching safe_yaml-1.0.5.gem
+Fetching rouge-3.26.1.gem
+Fetching forwardable-extended-2.6.0.gem
+Fetching pathutil-0.16.2.gem
+Fetching mercenary-0.4.0.gem
+Fetching liquid-4.0.3.gem
+Fetching ffi-1.15.4.gem
+Fetching kramdown-2.3.1.gem
+Fetching kramdown-parser-gfm-1.1.0.gem
+Fetching rb-inotify-0.10.1.gem
+Fetching rb-fsevent-0.11.0.gem
+Fetching listen-3.7.0.gem
+Fetching jekyll-watch-2.2.1.gem
+Fetching sassc-2.4.0.gem
+Fetching jekyll-sass-converter-2.1.0.gem
+Fetching concurrent-ruby-1.1.9.gem
+Fetching i18n-1.8.11.gem
+Fetching http_parser.rb-0.8.0.gem
+Fetching eventmachine-1.2.7.gem
+Fetching em-websocket-0.5.3.gem
+Fetching colorator-1.1.0.gem
+Fetching public_suffix-4.0.6.gem
+Fetching jekyll-4.2.1.gem
+Fetching addressable-2.8.0.gem
+Successfully installed unicode-display_width-1.8.0
+Successfully installed terminal-table-2.0.0
+Successfully installed safe_yaml-1.0.5
+Successfully installed rouge-3.26.1
+Successfully installed forwardable-extended-2.6.0
+Successfully installed pathutil-0.16.2
+Successfully installed mercenary-0.4.0
+Successfully installed liquid-4.0.3
+Successfully installed kramdown-2.3.1
+Successfully installed kramdown-parser-gfm-1.1.0
+Building native extensions. This could take a while...
+Successfully installed ffi-1.15.4
+Successfully installed rb-inotify-0.10.1
+Successfully installed rb-fsevent-0.11.0
+Successfully installed listen-3.7.0
+Successfully installed jekyll-watch-2.2.1
+Building native extensions. This could take a while...
+Successfully installed sassc-2.4.0
+Successfully installed jekyll-sass-converter-2.1.0
+Successfully installed concurrent-ruby-1.1.9
+Successfully installed i18n-1.8.11
+Building native extensions. This could take a while...
+Successfully installed http_parser.rb-0.8.0
+Building native extensions. This could take a while...
+Successfully installed eventmachine-1.2.7
+Successfully installed em-websocket-0.5.3
+Successfully installed colorator-1.1.0
+Successfully installed public_suffix-4.0.6
+Successfully installed addressable-2.8.0
+Successfully installed jekyll-4.2.1
+Parsing documentation for unicode-display_width-1.8.0
+Installing ri documentation for unicode-display_width-1.8.0
+Parsing documentation for terminal-table-2.0.0
+Installing ri documentation for terminal-table-2.0.0
+Parsing documentation for safe_yaml-1.0.5
+Installing ri documentation for safe_yaml-1.0.5
+Parsing documentation for rouge-3.26.1
+Installing ri documentation for rouge-3.26.1
+Parsing documentation for forwardable-extended-2.6.0
+Installing ri documentation for forwardable-extended-2.6.0
+Parsing documentation for pathutil-0.16.2
+Installing ri documentation for pathutil-0.16.2
+Parsing documentation for mercenary-0.4.0
+Installing ri documentation for mercenary-0.4.0
+Parsing documentation for liquid-4.0.3
+Installing ri documentation for liquid-4.0.3
+Parsing documentation for kramdown-2.3.1
+Installing ri documentation for kramdown-2.3.1
+Parsing documentation for kramdown-parser-gfm-1.1.0
+Installing ri documentation for kramdown-parser-gfm-1.1.0
+Parsing documentation for ffi-1.15.4
+Installing ri documentation for ffi-1.15.4
+Parsing documentation for rb-inotify-0.10.1
+Installing ri documentation for rb-inotify-0.10.1
+Parsing documentation for rb-fsevent-0.11.0
+Installing ri documentation for rb-fsevent-0.11.0
+Parsing documentation for listen-3.7.0
+Installing ri documentation for listen-3.7.0
+Parsing documentation for jekyll-watch-2.2.1
+Installing ri documentation for jekyll-watch-2.2.1
+Parsing documentation for sassc-2.4.0
+Installing ri documentation for sassc-2.4.0
+Parsing documentation for jekyll-sass-converter-2.1.0
+Installing ri documentation for jekyll-sass-converter-2.1.0
+Parsing documentation for concurrent-ruby-1.1.9
+Installing ri documentation for concurrent-ruby-1.1.9
+Parsing documentation for i18n-1.8.11
+Installing ri documentation for i18n-1.8.11
+Parsing documentation for http_parser.rb-0.8.0
+unknown encoding name &quot;chunked\r\n\r\n25&quot; for ext/ruby_http_parser/vendor/http-parser-java/tools/parse_tests.rb, skipping
+Installing ri documentation for http_parser.rb-0.8.0
+Parsing documentation for eventmachine-1.2.7
+Installing ri documentation for eventmachine-1.2.7
+Parsing documentation for em-websocket-0.5.3
+Installing ri documentation for em-websocket-0.5.3
+Parsing documentation for colorator-1.1.0
+Installing ri documentation for colorator-1.1.0
+Parsing documentation for public_suffix-4.0.6
+Installing ri documentation for public_suffix-4.0.6
+Parsing documentation for addressable-2.8.0
+Installing ri documentation for addressable-2.8.0
+Parsing documentation for jekyll-4.2.1
+Installing ri documentation for jekyll-4.2.1
+Done installing documentation for unicode-display_width, terminal-table, safe_yaml, rouge, forwardable-extended, pathutil, mercenary, liquid, kramdown, kramdown-parser-gfm, ffi, rb-inotify, rb-fsevent, listen, jekyll-watch, sassc, jekyll-sass-converter, concurrent-ruby, i18n, http_parser.rb, eventmachine, em-websocket, colorator, public_suffix, addressable, jekyll after 11 seconds
+27 gems installed
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;看起来像是成功安装了，按照官方教程继续安装。&lt;/p&gt;
+
+&lt;p&gt;获取ruby version，上面已经查看过了，记录下ruby的版本&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air ~ % ruby &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
+
+ruby 3.0.2p107 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2021-07-07 revision 0db68f0233&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;arm64-darwin20]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Append your path file with the following, replacing the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;X.X&lt;/code&gt; with the first two digits of your Ruby version: 将版本号替换成上面查看的ruby version即可(我只替换了x.x 最后的.2没有替换，先按照官方的方法来)&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;export PATH=&quot;$HOME/.gem/ruby/3.0.0/bin:$PATH&quot;&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; ~/.zshrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;get gem env&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air ~ % gem &lt;span class=&quot;nb&quot;&gt;env&lt;/span&gt;    
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;RubyGems Environment:
+  - RUBYGEMS VERSION: 3.2.22
+  - RUBY VERSION: 3.0.2 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2021-07-07 patchlevel 107&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;arm64-darwin20]
+  - INSTALLATION DIRECTORY: /opt/homebrew/lib/ruby/gems/3.0.0
+  - USER INSTALLATION DIRECTORY: /Users/yiwen/.gem/ruby/3.0.0
+  - RUBY EXECUTABLE: /opt/homebrew/opt/ruby/bin/ruby
+  - GIT EXECUTABLE: /usr/bin/git
+  - EXECUTABLE DIRECTORY: /opt/homebrew/lib/ruby/gems/3.0.0/bin
+  - SPEC CACHE DIRECTORY: /Users/yiwen/.gem/specs
+  - SYSTEM CONFIGURATION DIRECTORY: /opt/homebrew/Cellar/ruby/3.0.2/etc
+  - RUBYGEMS PLATFORMS:
+     - ruby
+     - arm64-darwin-20
+  - GEM PATHS:
+     - /opt/homebrew/lib/ruby/gems/3.0.0
+     - /Users/yiwen/.gem/ruby/3.0.0
+     - /opt/homebrew/Cellar/ruby/3.0.2/lib/ruby/gems/3.0.0
+  - GEM CONFIGURATION:
+     - :update_sources &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+     - :verbose &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+     - :backtrace &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;
+     - :bulk_threshold &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; 1000
+  - REMOTE SOURCES:
+     - https://rubygems.org/
+  - SHELL PATH:
+     - /opt/homebrew/opt/ruby/bin
+     - /usr/local/opt/ruby/bin
+     - /usr/local/lib/ruby/gems/3.0.0/bin
+     - /usr/local/opt/ruby/bin
+     - /usr/local/lib/ruby/gems/3.0.0/bin
+     - /opt/homebrew/bin
+     - /opt/homebrew/sbin
+     - /usr/local/bin
+     - /usr/bin
+     - /bin
+     - /usr/sbin
+     - /sbin
+     - /Library/Apple/usr/bin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;按照教程是安装完了，回到官方教程的首页尝试创建一个项目： http://jekyllrb.com/&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air ~ % jekyll new my-awesome-site
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/universal-darwin20/rbconfig.rb:229: warning: Insecure world writable &lt;span class=&quot;nb&quot;&gt;dir&lt;/span&gt; /opt/homebrew/opt &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;PATH, mode 040777
+Invalid gemspec &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;/Users/yiwen/.gem/ruby/2.6.0/specifications/jekyll-4.2.1.gemspec]: /Users/yiwen/.gem/ruby/2.6.0/specifications/jekyll-4.2.1.gemspec:64: syntax error, unexpected &lt;span class=&quot;s1&quot;&gt;&apos;)&apos;&lt;/span&gt;, expecting end-of-input
+Traceback &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;most recent call last&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:
+	2: from /usr/local/bin/jekyll:23:in &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&amp;lt;main&amp;gt;&lt;span class=&quot;s1&quot;&gt;&apos;
+	1: from /Library/Ruby/Site/2.6.0/rubygems.rb:297:in `activate_bin_path&apos;&lt;/span&gt;
+/Library/Ruby/Site/2.6.0/rubygems.rb:278:in &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;find_spec_for_exe&lt;span class=&quot;s1&quot;&gt;&apos;: can&apos;&lt;/span&gt;t find gem jekyll &lt;span class=&quot;o&quot;&gt;(&amp;gt;=&lt;/span&gt; 0.a&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; with executable jekyll &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Gem::GemNotFoundException&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;失败了,看了上面的运行结果发现 ruby竟然还是2.6的，考虑会不会是缓存问题，尝试关闭窗口，重新打开试试。&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air ~ % jekyll new my-awesome-site
+Running bundle &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; /Users/yiwen/my-awesome-site... 
+  Bundler: Fetching gem metadata from https://rubygems.org/..........
+  Bundler: Resolving dependencies...
+  Bundler: Using public_suffix 4.0.6
+  Bundler: Using bundler 2.2.33
+  Bundler: Using colorator 1.1.0
+  Bundler: Using concurrent-ruby 1.1.9
+  Bundler: Using eventmachine 1.2.7
+  Bundler: Using http_parser.rb 0.8.0
+  Bundler: Using ffi 1.15.4
+  Bundler: Using forwardable-extended 2.6.0
+  Bundler: Using rb-fsevent 0.11.0
+  Bundler: Using rexml 3.2.5
+  Bundler: Using liquid 4.0.3
+  Bundler: Using mercenary 0.4.0
+  Bundler: Using rouge 3.26.1
+  Bundler: Using unicode-display_width 1.8.0
+  Bundler: Using safe_yaml 1.0.5
+  Bundler: Using sassc 2.4.0
+  Bundler: Using addressable 2.8.0
+  Bundler: Using i18n 1.8.11
+  Bundler: Using pathutil 0.16.2
+  Bundler: Using rb-inotify 0.10.1
+  Bundler: Using em-websocket 0.5.3
+  Bundler: Using kramdown 2.3.1
+  Bundler: Using terminal-table 2.0.0
+  Bundler: Using listen 3.7.0
+  Bundler: Using kramdown-parser-gfm 1.1.0
+  Bundler: Using jekyll-sass-converter 2.1.0
+  Bundler: Using jekyll-watch 2.2.1
+  Bundler: Using jekyll 4.2.1
+  Bundler: Fetching jekyll-feed 0.15.1
+  Bundler: Fetching jekyll-seo-tag 2.7.1
+  Bundler: Installing jekyll-feed 0.15.1
+  Bundler: Installing jekyll-seo-tag 2.7.1
+  Bundler: Fetching minima 2.5.1
+  Bundler: Installing minima 2.5.1
+  Bundler: Bundle &lt;span class=&quot;nb&quot;&gt;complete&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; 6 Gemfile dependencies, 31 gems now installed.
+  Bundler: Use &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;bundle info &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;gemname]&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; to see where a bundled gem is installed.
+New jekyll site installed &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; /Users/yiwen/my-awesome-site.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;重新打开运行竟然成功了。&lt;/p&gt;
+
+&lt;p&gt;尝试运行项目&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air ~ % cd my-awesome-site 
+yiwen@yiwens-MacBook-Air my-awesome-site % bundle exec jekyll serve
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;还是报错了&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Configuration file: /Users/yiwen/my-awesome-site/_config.yml
+            Source: /Users/yiwen/my-awesome-site
+       Destination: /Users/yiwen/my-awesome-site/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+       Jekyll Feed: Generating feed for posts
+                    done in 0.636 seconds.
+ Auto-regeneration: enabled for &apos;/Users/yiwen/my-awesome-site&apos;
+                    ------------------------------------------------
+      Jekyll 4.2.1   Please append `--trace` to the `serve` command 
+                     for any additional information or backtrace. 
+                    ------------------------------------------------
+/Users/yiwen/.gem/ruby/3.0.0/gems/jekyll-4.2.1/lib/jekyll/commands/serve/servlet.rb:3:in `require&apos;: cannot load such file -- webrick (LoadError)
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/jekyll-4.2.1/lib/jekyll/commands/serve/servlet.rb:3:in `&amp;lt;top (required)&amp;gt;&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/jekyll-4.2.1/lib/jekyll/commands/serve.rb:179:in `require_relative&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/jekyll-4.2.1/lib/jekyll/commands/serve.rb:179:in `setup&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/jekyll-4.2.1/lib/jekyll/commands/serve.rb:100:in `process&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/jekyll-4.2.1/lib/jekyll/command.rb:91:in `block in process_with_graceful_fail&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/jekyll-4.2.1/lib/jekyll/command.rb:91:in `each&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/jekyll-4.2.1/lib/jekyll/command.rb:91:in `process_with_graceful_fail&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/jekyll-4.2.1/lib/jekyll/commands/serve.rb:86:in `block (2 levels) in init_with_program&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/mercenary-0.4.0/lib/mercenary/command.rb:221:in `block in execute&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/mercenary-0.4.0/lib/mercenary/command.rb:221:in `each&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/mercenary-0.4.0/lib/mercenary/command.rb:221:in `execute&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/mercenary-0.4.0/lib/mercenary/program.rb:44:in `go&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/mercenary-0.4.0/lib/mercenary.rb:21:in `program&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/jekyll-4.2.1/exe/jekyll:15:in `&amp;lt;top (required)&amp;gt;&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/bin/jekyll:23:in `load&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/bin/jekyll:23:in `&amp;lt;top (required)&amp;gt;&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/bundler-2.2.33/lib/bundler/cli/exec.rb:58:in `load&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/bundler-2.2.33/lib/bundler/cli/exec.rb:58:in `kernel_load&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/bundler-2.2.33/lib/bundler/cli/exec.rb:23:in `run&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/bundler-2.2.33/lib/bundler/cli.rb:479:in `exec&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/bundler-2.2.33/lib/bundler/vendor/thor/lib/thor/command.rb:27:in `run&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/bundler-2.2.33/lib/bundler/vendor/thor/lib/thor/invocation.rb:127:in `invoke_command&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/bundler-2.2.33/lib/bundler/vendor/thor/lib/thor.rb:392:in `dispatch&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/bundler-2.2.33/lib/bundler/cli.rb:31:in `dispatch&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/bundler-2.2.33/lib/bundler/vendor/thor/lib/thor/base.rb:485:in `start&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/bundler-2.2.33/lib/bundler/cli.rb:25:in `start&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/bundler-2.2.33/exe/bundle:49:in `block in &amp;lt;top (required)&amp;gt;&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/bundler-2.2.33/lib/bundler/friendly_errors.rb:103:in `with_friendly_errors&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/bundler-2.2.33/exe/bundle:37:in `&amp;lt;top (required)&amp;gt;&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/bin/bundle:23:in `load&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/bin/bundle:23:in `&amp;lt;main&amp;gt;&apos;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;抓住重点报错信息  &lt;strong&gt;cannot load such file – webrick (LoadError)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;安装webrick&quot;&gt;安装webrick&lt;/h3&gt;
+
+&lt;p&gt;由于上面报错信息是 没有找到webrick，尝试安装webrick&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air my-awesome-site % gem install webrick
+Fetching webrick-1.7.0.gem
+Successfully installed webrick-1.7.0
+Parsing documentation for webrick-1.7.0
+Installing ri documentation for webrick-1.7.0
+Done installing documentation for webrick after 0 seconds
+1 gem installed
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;安装成功，再次测试运行,还是报错。。。&lt;/p&gt;
+
+&lt;p&gt;百度了下，看到网上的说明&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Ruby3.0.0以上不会再自带webrick, 官网有提到这个问题, 不一定要降低版本, 执行`bundle add webrick`把webrick添加到依赖就可以了, [Quickstart https://jekyllrb.com/docs/](https://jekyllrb.com/docs/),[issue752 https://github.com/github/pages-gem/issues/752](https://github.com/github/pages-gem/issues/752)2 月前回复
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;尝试运行命令&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle add webrick
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;再次运行，成功。 撒花撒花。九点五十二完成，比预计少了八分钟&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air my-awesome-site % bundle exec jekyll serve
+Configuration file: /Users/yiwen/my-awesome-site/_config.yml
+            Source: /Users/yiwen/my-awesome-site
+       Destination: /Users/yiwen/my-awesome-site/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+       Jekyll Feed: Generating feed for posts
+                    done in 0.184 seconds.
+ Auto-regeneration: enabled for &apos;/Users/yiwen/my-awesome-site&apos;
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Users/yiwen/Library/Application Support/typora-user-images/image-20211212215508623.png&quot; alt=&quot;image-20211212215508623&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">我在macos安装jekyll遇到了不少问题，由于国内的资料相对少一些，花费了不少的力气最终成功生成jekyll网站，记录其中碰到的问题供大家分享。 安装jekyll时遇到的问题</summary></entry><entry><title type="html">测试!</title><link href="http://localhost:4000/jekyll/update/2022/01/04/%E6%B5%8B%E8%AF%95.html" rel="alternate" type="text/html" title="测试!" /><published>2022-01-04T09:38:08+08:00</published><updated>2022-01-04T09:38:08+08:00</updated><id>http://localhost:4000/jekyll/update/2022/01/04/%E6%B5%8B%E8%AF%95</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2022/01/04/%E6%B5%8B%E8%AF%95.html">&lt;h2 id=&quot;安装jekyll时遇到的问题&quot;&gt;安装jekyll时遇到的问题&lt;/h2&gt;
+
+&lt;p&gt;官方Jekyll： http://jekyllrb.com/docs/&lt;/p&gt;
+
+&lt;p&gt;我的电脑时mac air m1， 在直接按照官方教程安装时并不能成功安装Jekyll，仔细查看官方文档，按照文档要求尝试。 自己安装过成中的记录，供大家参考，希望对你有所帮助。&lt;/p&gt;
+
+&lt;h3 id=&quot;尝试重新安装ruby&quot;&gt;尝试重新安装ruby&lt;/h3&gt;
+
+&lt;p&gt;m1的电脑中直接有安装好的ruby，不知道时我安装其他软件时安装的还是自带的，由于现在jekyll安装失败，我按照官方文档重新安装ruby。&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air ~ % brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ruby
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;在install过程中报错，报错如下：&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;==&amp;gt;&lt;/span&gt; Installing ruby dependency: readline
+&lt;span class=&quot;o&quot;&gt;==&amp;gt;&lt;/span&gt; Pouring readline-8.1.arm64_big_sur.bottle.tar.gz
+&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt;: Error opening archive: Failed to open &lt;span class=&quot;s1&quot;&gt;&apos;/Users/yiwen/Library/Caches/Homebrew/downloads/ad46a5a60b2948a91c235d8e24bb732d859473901d6b368f1810770ddd7048cb--readline-8.1.arm64_big_sur.bottle.tar.gz&apos;&lt;/span&gt;
+Error: Failure &lt;span class=&quot;k&quot;&gt;while &lt;/span&gt;executing&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;tar&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--extract&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--no-same-owner&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--file&lt;/span&gt; /Users/yiwen/Library/Caches/Homebrew/downloads/ad46a5a60b2948a91c235d8e24bb732d859473901d6b368f1810770ddd7048cb--readline-8.1.arm64_big_sur.bottle.tar.gz &lt;span class=&quot;nt&quot;&gt;--directory&lt;/span&gt; /private/tmp/d20211212-53159-1qiwacs&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; exited with 1. Here&lt;span class=&quot;s1&quot;&gt;&apos;s the output:
+tar: Error opening archive: Failed to open &apos;&lt;/span&gt;/Users/yiwen/Library/Caches/Homebrew/downloads/ad46a5a60b2948a91c235d8e24bb732d859473901d6b368f1810770ddd7048cb--readline-8.1.arm64_big_sur.bottle.tar.gz&lt;span class=&quot;s1&quot;&gt;&apos;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;看着错误的意思是说readline安装失败，我尝试自己直接先安装好readline这个东西，再尝试install ruby&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air ~ % brew install readline
+
+==&amp;gt; Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/readline-8.
+#=#=#                                                                         
+curl: (22) The requested URL returned error: 404 
+Warning: Bottle missing, falling back to the default domain...
+==&amp;gt; Downloading https://ghcr.io/v2/homebrew/core/readline/manifests/8.1
+Already downloaded: /Users/yiwen/Library/Caches/Homebrew/downloads/b37133a77c8680447162faf218b59fb36ee5d3e1926fbbff244e43581ab9128a--readline-8.1.bottle_manifest.json
+==&amp;gt; Downloading https://ghcr.io/v2/homebrew/core/readline/blobs/sha256:940e7c2b8
+Already downloaded: /Users/yiwen/Library/Caches/Homebrew/downloads/74e969cb4f00090baf5eecd3fd0ffd8a26f94b939f5df529ff18f1e29c3e0d7e--readline--8.1.arm64_big_sur.bottle.tar.gz
+==&amp;gt; Pouring readline--8.1.arm64_big_sur.bottle.tar.gz
+==&amp;gt; Caveats
+readline is keg-only, which means it was not symlinked into /opt/homebrew,
+because macOS provides BSD libedit.
+
+For compilers to find readline you may need to set:
+  export LDFLAGS=&quot;-L/opt/homebrew/opt/readline/lib&quot;
+  export CPPFLAGS=&quot;-I/opt/homebrew/opt/readline/include&quot;
+
+==&amp;gt; Summary
+🍺  /opt/homebrew/Cellar/readline/8.1: 48 files, 1.7MB
+==&amp;gt; `brew cleanup` has not been run in 30 days, running now...
+Removing: /Users/yiwen/Library/Logs/Homebrew/nghttp2... (64B)
+Removing: /Users/yiwen/Library/Logs/Homebrew/libuv... (64B)
+Removing: /Users/yiwen/Library/Logs/Homebrew/jemalloc... (64B)
+Removing: /Users/yiwen/Library/Logs/Homebrew/brotli... (64B)
+Removing: /Users/yiwen/Library/Logs/Homebrew/icu4c... (64B)
+Removing: /Users/yiwen/Library/Logs/Homebrew/c-ares... (64B)
+Removing: /Users/yiwen/Library/Logs/Homebrew/yarn... (64B)
+Removing: /Users/yiwen/Library/Logs/Homebrew/openssl@1.1... (64B)
+Removing: /Users/yiwen/Library/Logs/Homebrew/node... (64B)
+Removing: /Users/yiwen/Library/Logs/Homebrew/libev... (64B)
+Pruned 0 symbolic links and 3 directories from /opt/homebrew
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;readline安装成功，再次尝试安装Ruby&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air ~ % brew &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ruby    
+&lt;span class=&quot;o&quot;&gt;==&amp;gt;&lt;/span&gt; Downloading https://mirrors.ustc.edu.cn/homebrew-bottles/bottles/ruby-3.0.2.
+&lt;span class=&quot;c&quot;&gt;#=#=#                                                                         &lt;/span&gt;
+curl: &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;22&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; The requested URL returned error: 404 
+Warning: Bottle missing, falling back to the default domain...
+&lt;span class=&quot;o&quot;&gt;==&amp;gt;&lt;/span&gt; Downloading https://ghcr.io/v2/homebrew/core/ruby/manifests/3.0.2
+Already downloaded: /Users/yiwen/Library/Caches/Homebrew/downloads/85c74df46ef2c4d6020c3111842fdb3abec0622e0d853e84010d055a6be0174e--ruby-3.0.2.bottle_manifest.json
+&lt;span class=&quot;o&quot;&gt;==&amp;gt;&lt;/span&gt; Downloading https://ghcr.io/v2/homebrew/core/ruby/blobs/sha256:7fefa5ed8f97a
+Already downloaded: /Users/yiwen/Library/Caches/Homebrew/downloads/d26b88e82f458db5dbda4206cfe1f8d87491ff2dc6785e1bdcb737c8cc647089--ruby--3.0.2.arm64_big_sur.bottle.tar.gz
+&lt;span class=&quot;o&quot;&gt;==&amp;gt;&lt;/span&gt; Pouring ruby--3.0.2.arm64_big_sur.bottle.tar.gz
+&lt;span class=&quot;o&quot;&gt;==&amp;gt;&lt;/span&gt; Caveats
+By default, binaries installed by gem will be placed into:
+  /opt/homebrew/lib/ruby/gems/3.0.0/bin
+
+You may want to add this to your PATH.
+
+ruby is keg-only, which means it was not symlinked into /opt/homebrew,
+because macOS already provides this software and installing another version &lt;span class=&quot;k&quot;&gt;in
+&lt;/span&gt;parallel can cause all kinds of trouble.
+
+If you need to have ruby first &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;your PATH, run:
+  &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;export PATH=&quot;/opt/homebrew/opt/ruby/bin:$PATH&quot;&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; ~/.zshrc
+
+For compilers to find ruby you may need to &lt;span class=&quot;nb&quot;&gt;set&lt;/span&gt;:
+  &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;LDFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;-L/opt/homebrew/opt/ruby/lib&quot;&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;export &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;CPPFLAGS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;-I/opt/homebrew/opt/ruby/include&quot;&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;==&amp;gt;&lt;/span&gt; Summary
+🍺  /opt/homebrew/Cellar/ruby/3.0.2: 16,390 files, 40.4MB
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;安装ruby成功了。&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air ~ % &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$SHELL&lt;/span&gt;
+
+/bin/zsh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Add the brew ruby and gems path to your shell configuration:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# If you&apos;re using Zsh&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;export PATH=&quot;/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:$PATH&quot;&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; ~/.zshrc
+
+&lt;span class=&quot;c&quot;&gt;# If you&apos;re using Bash&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;export PATH=&quot;/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:$PATH&quot;&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; ~/.bash_profile
+
+&lt;span class=&quot;c&quot;&gt;# Unsure which shell you are using? Type&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$SHELL&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;上面是官方的，然而我发现我的m1中并没有 /usr/local/opt/ruby这个目录，百度尝试用别人的方法尝试（在homebrew目录中有ruby沐目录）&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air bin % echo &apos;export PATH=&quot;/opt/homebrew/opt/ruby/bin:$PATH&quot;&apos; &amp;gt;&amp;gt; ~/.zshrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;关闭terminal，重新打开。查看ruby版本&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air ~ % ruby &lt;span class=&quot;nt&quot;&gt;-version&lt;/span&gt;    &lt;span class=&quot;c&quot;&gt;#没配置之前ruby我记得是2.几的版本，当时忘记记录了 ruby的目录也变成上面配置的目录了。我看到希望了，希望今天可以再十点之前完成，睡个好觉。&lt;/span&gt;
+ruby 3.0.2p107 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2021-07-07 revision 0db68f0233&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;arm64-darwin20]
+&lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt;:1:in &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&amp;lt;main&amp;gt;&lt;span class=&quot;s1&quot;&gt;&apos;: undefined local variable or method `rsion&apos;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;main:Object &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;NameError&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+
+yiwen@yiwens-MacBook-Air ~ % which ruby
+/opt/homebrew/opt/ruby/bin/ruby
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;尝试安装jekyll&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air ~ % gem &lt;span class=&quot;nb&quot;&gt;install&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--user-install&lt;/span&gt; bundler jekyll
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+Fetching bundler-2.2.33.gem
+WARNING:  You don&lt;span class=&quot;s1&quot;&gt;&apos;t have /Users/yiwen/.gem/ruby/3.0.0/bin in your PATH,
+	  gem executables will not run.
+Successfully installed bundler-2.2.33
+Parsing documentation for bundler-2.2.33
+Installing ri documentation for bundler-2.2.33
+Done installing documentation for bundler after 1 seconds
+Fetching unicode-display_width-1.8.0.gem
+Fetching terminal-table-2.0.0.gem
+Fetching safe_yaml-1.0.5.gem
+Fetching rouge-3.26.1.gem
+Fetching forwardable-extended-2.6.0.gem
+Fetching pathutil-0.16.2.gem
+Fetching mercenary-0.4.0.gem
+Fetching liquid-4.0.3.gem
+Fetching ffi-1.15.4.gem
+Fetching kramdown-2.3.1.gem
+Fetching kramdown-parser-gfm-1.1.0.gem
+Fetching rb-inotify-0.10.1.gem
+Fetching rb-fsevent-0.11.0.gem
+Fetching listen-3.7.0.gem
+Fetching jekyll-watch-2.2.1.gem
+Fetching sassc-2.4.0.gem
+Fetching jekyll-sass-converter-2.1.0.gem
+Fetching concurrent-ruby-1.1.9.gem
+Fetching i18n-1.8.11.gem
+Fetching http_parser.rb-0.8.0.gem
+Fetching eventmachine-1.2.7.gem
+Fetching em-websocket-0.5.3.gem
+Fetching colorator-1.1.0.gem
+Fetching public_suffix-4.0.6.gem
+Fetching jekyll-4.2.1.gem
+Fetching addressable-2.8.0.gem
+Successfully installed unicode-display_width-1.8.0
+Successfully installed terminal-table-2.0.0
+Successfully installed safe_yaml-1.0.5
+Successfully installed rouge-3.26.1
+Successfully installed forwardable-extended-2.6.0
+Successfully installed pathutil-0.16.2
+Successfully installed mercenary-0.4.0
+Successfully installed liquid-4.0.3
+Successfully installed kramdown-2.3.1
+Successfully installed kramdown-parser-gfm-1.1.0
+Building native extensions. This could take a while...
+Successfully installed ffi-1.15.4
+Successfully installed rb-inotify-0.10.1
+Successfully installed rb-fsevent-0.11.0
+Successfully installed listen-3.7.0
+Successfully installed jekyll-watch-2.2.1
+Building native extensions. This could take a while...
+Successfully installed sassc-2.4.0
+Successfully installed jekyll-sass-converter-2.1.0
+Successfully installed concurrent-ruby-1.1.9
+Successfully installed i18n-1.8.11
+Building native extensions. This could take a while...
+Successfully installed http_parser.rb-0.8.0
+Building native extensions. This could take a while...
+Successfully installed eventmachine-1.2.7
+Successfully installed em-websocket-0.5.3
+Successfully installed colorator-1.1.0
+Successfully installed public_suffix-4.0.6
+Successfully installed addressable-2.8.0
+Successfully installed jekyll-4.2.1
+Parsing documentation for unicode-display_width-1.8.0
+Installing ri documentation for unicode-display_width-1.8.0
+Parsing documentation for terminal-table-2.0.0
+Installing ri documentation for terminal-table-2.0.0
+Parsing documentation for safe_yaml-1.0.5
+Installing ri documentation for safe_yaml-1.0.5
+Parsing documentation for rouge-3.26.1
+Installing ri documentation for rouge-3.26.1
+Parsing documentation for forwardable-extended-2.6.0
+Installing ri documentation for forwardable-extended-2.6.0
+Parsing documentation for pathutil-0.16.2
+Installing ri documentation for pathutil-0.16.2
+Parsing documentation for mercenary-0.4.0
+Installing ri documentation for mercenary-0.4.0
+Parsing documentation for liquid-4.0.3
+Installing ri documentation for liquid-4.0.3
+Parsing documentation for kramdown-2.3.1
+Installing ri documentation for kramdown-2.3.1
+Parsing documentation for kramdown-parser-gfm-1.1.0
+Installing ri documentation for kramdown-parser-gfm-1.1.0
+Parsing documentation for ffi-1.15.4
+Installing ri documentation for ffi-1.15.4
+Parsing documentation for rb-inotify-0.10.1
+Installing ri documentation for rb-inotify-0.10.1
+Parsing documentation for rb-fsevent-0.11.0
+Installing ri documentation for rb-fsevent-0.11.0
+Parsing documentation for listen-3.7.0
+Installing ri documentation for listen-3.7.0
+Parsing documentation for jekyll-watch-2.2.1
+Installing ri documentation for jekyll-watch-2.2.1
+Parsing documentation for sassc-2.4.0
+Installing ri documentation for sassc-2.4.0
+Parsing documentation for jekyll-sass-converter-2.1.0
+Installing ri documentation for jekyll-sass-converter-2.1.0
+Parsing documentation for concurrent-ruby-1.1.9
+Installing ri documentation for concurrent-ruby-1.1.9
+Parsing documentation for i18n-1.8.11
+Installing ri documentation for i18n-1.8.11
+Parsing documentation for http_parser.rb-0.8.0
+unknown encoding name &quot;chunked\r\n\r\n25&quot; for ext/ruby_http_parser/vendor/http-parser-java/tools/parse_tests.rb, skipping
+Installing ri documentation for http_parser.rb-0.8.0
+Parsing documentation for eventmachine-1.2.7
+Installing ri documentation for eventmachine-1.2.7
+Parsing documentation for em-websocket-0.5.3
+Installing ri documentation for em-websocket-0.5.3
+Parsing documentation for colorator-1.1.0
+Installing ri documentation for colorator-1.1.0
+Parsing documentation for public_suffix-4.0.6
+Installing ri documentation for public_suffix-4.0.6
+Parsing documentation for addressable-2.8.0
+Installing ri documentation for addressable-2.8.0
+Parsing documentation for jekyll-4.2.1
+Installing ri documentation for jekyll-4.2.1
+Done installing documentation for unicode-display_width, terminal-table, safe_yaml, rouge, forwardable-extended, pathutil, mercenary, liquid, kramdown, kramdown-parser-gfm, ffi, rb-inotify, rb-fsevent, listen, jekyll-watch, sassc, jekyll-sass-converter, concurrent-ruby, i18n, http_parser.rb, eventmachine, em-websocket, colorator, public_suffix, addressable, jekyll after 11 seconds
+27 gems installed
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;看起来像是成功安装了，按照官方教程继续安装。&lt;/p&gt;
+
+&lt;p&gt;获取ruby version，上面已经查看过了，记录下ruby的版本&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air ~ % ruby &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt;
+
+ruby 3.0.2p107 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2021-07-07 revision 0db68f0233&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;arm64-darwin20]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Append your path file with the following, replacing the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;X.X&lt;/code&gt; with the first two digits of your Ruby version: 将版本号替换成上面查看的ruby version即可(我只替换了x.x 最后的.2没有替换，先按照官方的方法来)&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;export PATH=&quot;$HOME/.gem/ruby/3.0.0/bin:$PATH&quot;&apos;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; ~/.zshrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;get gem env&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air ~ % gem &lt;span class=&quot;nb&quot;&gt;env&lt;/span&gt;    
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;RubyGems Environment:
+  - RUBYGEMS VERSION: 3.2.22
+  - RUBY VERSION: 3.0.2 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;2021-07-07 patchlevel 107&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;arm64-darwin20]
+  - INSTALLATION DIRECTORY: /opt/homebrew/lib/ruby/gems/3.0.0
+  - USER INSTALLATION DIRECTORY: /Users/yiwen/.gem/ruby/3.0.0
+  - RUBY EXECUTABLE: /opt/homebrew/opt/ruby/bin/ruby
+  - GIT EXECUTABLE: /usr/bin/git
+  - EXECUTABLE DIRECTORY: /opt/homebrew/lib/ruby/gems/3.0.0/bin
+  - SPEC CACHE DIRECTORY: /Users/yiwen/.gem/specs
+  - SYSTEM CONFIGURATION DIRECTORY: /opt/homebrew/Cellar/ruby/3.0.2/etc
+  - RUBYGEMS PLATFORMS:
+     - ruby
+     - arm64-darwin-20
+  - GEM PATHS:
+     - /opt/homebrew/lib/ruby/gems/3.0.0
+     - /Users/yiwen/.gem/ruby/3.0.0
+     - /opt/homebrew/Cellar/ruby/3.0.2/lib/ruby/gems/3.0.0
+  - GEM CONFIGURATION:
+     - :update_sources &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+     - :verbose &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+     - :backtrace &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;false&lt;/span&gt;
+     - :bulk_threshold &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; 1000
+  - REMOTE SOURCES:
+     - https://rubygems.org/
+  - SHELL PATH:
+     - /opt/homebrew/opt/ruby/bin
+     - /usr/local/opt/ruby/bin
+     - /usr/local/lib/ruby/gems/3.0.0/bin
+     - /usr/local/opt/ruby/bin
+     - /usr/local/lib/ruby/gems/3.0.0/bin
+     - /opt/homebrew/bin
+     - /opt/homebrew/sbin
+     - /usr/local/bin
+     - /usr/bin
+     - /bin
+     - /usr/sbin
+     - /sbin
+     - /Library/Apple/usr/bin
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;按照教程是安装完了，回到官方教程的首页尝试创建一个项目： http://jekyllrb.com/&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air ~ % jekyll new my-awesome-site
+/System/Library/Frameworks/Ruby.framework/Versions/2.6/usr/lib/ruby/2.6.0/universal-darwin20/rbconfig.rb:229: warning: Insecure world writable &lt;span class=&quot;nb&quot;&gt;dir&lt;/span&gt; /opt/homebrew/opt &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;PATH, mode 040777
+Invalid gemspec &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;/Users/yiwen/.gem/ruby/2.6.0/specifications/jekyll-4.2.1.gemspec]: /Users/yiwen/.gem/ruby/2.6.0/specifications/jekyll-4.2.1.gemspec:64: syntax error, unexpected &lt;span class=&quot;s1&quot;&gt;&apos;)&apos;&lt;/span&gt;, expecting end-of-input
+Traceback &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;most recent call last&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;:
+	2: from /usr/local/bin/jekyll:23:in &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;&amp;lt;main&amp;gt;&lt;span class=&quot;s1&quot;&gt;&apos;
+	1: from /Library/Ruby/Site/2.6.0/rubygems.rb:297:in `activate_bin_path&apos;&lt;/span&gt;
+/Library/Ruby/Site/2.6.0/rubygems.rb:278:in &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;find_spec_for_exe&lt;span class=&quot;s1&quot;&gt;&apos;: can&apos;&lt;/span&gt;t find gem jekyll &lt;span class=&quot;o&quot;&gt;(&amp;gt;=&lt;/span&gt; 0.a&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; with executable jekyll &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;Gem::GemNotFoundException&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;失败了,看了上面的运行结果发现 ruby竟然还是2.6的，考虑会不会是缓存问题，尝试关闭窗口，重新打开试试。&lt;/p&gt;
+
+&lt;div class=&quot;language-shell highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air ~ % jekyll new my-awesome-site
+Running bundle &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;&lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; /Users/yiwen/my-awesome-site... 
+  Bundler: Fetching gem metadata from https://rubygems.org/..........
+  Bundler: Resolving dependencies...
+  Bundler: Using public_suffix 4.0.6
+  Bundler: Using bundler 2.2.33
+  Bundler: Using colorator 1.1.0
+  Bundler: Using concurrent-ruby 1.1.9
+  Bundler: Using eventmachine 1.2.7
+  Bundler: Using http_parser.rb 0.8.0
+  Bundler: Using ffi 1.15.4
+  Bundler: Using forwardable-extended 2.6.0
+  Bundler: Using rb-fsevent 0.11.0
+  Bundler: Using rexml 3.2.5
+  Bundler: Using liquid 4.0.3
+  Bundler: Using mercenary 0.4.0
+  Bundler: Using rouge 3.26.1
+  Bundler: Using unicode-display_width 1.8.0
+  Bundler: Using safe_yaml 1.0.5
+  Bundler: Using sassc 2.4.0
+  Bundler: Using addressable 2.8.0
+  Bundler: Using i18n 1.8.11
+  Bundler: Using pathutil 0.16.2
+  Bundler: Using rb-inotify 0.10.1
+  Bundler: Using em-websocket 0.5.3
+  Bundler: Using kramdown 2.3.1
+  Bundler: Using terminal-table 2.0.0
+  Bundler: Using listen 3.7.0
+  Bundler: Using kramdown-parser-gfm 1.1.0
+  Bundler: Using jekyll-sass-converter 2.1.0
+  Bundler: Using jekyll-watch 2.2.1
+  Bundler: Using jekyll 4.2.1
+  Bundler: Fetching jekyll-feed 0.15.1
+  Bundler: Fetching jekyll-seo-tag 2.7.1
+  Bundler: Installing jekyll-feed 0.15.1
+  Bundler: Installing jekyll-seo-tag 2.7.1
+  Bundler: Fetching minima 2.5.1
+  Bundler: Installing minima 2.5.1
+  Bundler: Bundle &lt;span class=&quot;nb&quot;&gt;complete&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt; 6 Gemfile dependencies, 31 gems now installed.
+  Bundler: Use &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;bundle info &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;gemname]&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt; to see where a bundled gem is installed.
+New jekyll site installed &lt;span class=&quot;k&quot;&gt;in&lt;/span&gt; /Users/yiwen/my-awesome-site.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;重新打开运行竟然成功了。&lt;/p&gt;
+
+&lt;p&gt;尝试运行项目&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air ~ % cd my-awesome-site 
+yiwen@yiwens-MacBook-Air my-awesome-site % bundle exec jekyll serve
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;还是报错了&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Configuration file: /Users/yiwen/my-awesome-site/_config.yml
+            Source: /Users/yiwen/my-awesome-site
+       Destination: /Users/yiwen/my-awesome-site/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+       Jekyll Feed: Generating feed for posts
+                    done in 0.636 seconds.
+ Auto-regeneration: enabled for &apos;/Users/yiwen/my-awesome-site&apos;
+                    ------------------------------------------------
+      Jekyll 4.2.1   Please append `--trace` to the `serve` command 
+                     for any additional information or backtrace. 
+                    ------------------------------------------------
+/Users/yiwen/.gem/ruby/3.0.0/gems/jekyll-4.2.1/lib/jekyll/commands/serve/servlet.rb:3:in `require&apos;: cannot load such file -- webrick (LoadError)
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/jekyll-4.2.1/lib/jekyll/commands/serve/servlet.rb:3:in `&amp;lt;top (required)&amp;gt;&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/jekyll-4.2.1/lib/jekyll/commands/serve.rb:179:in `require_relative&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/jekyll-4.2.1/lib/jekyll/commands/serve.rb:179:in `setup&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/jekyll-4.2.1/lib/jekyll/commands/serve.rb:100:in `process&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/jekyll-4.2.1/lib/jekyll/command.rb:91:in `block in process_with_graceful_fail&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/jekyll-4.2.1/lib/jekyll/command.rb:91:in `each&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/jekyll-4.2.1/lib/jekyll/command.rb:91:in `process_with_graceful_fail&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/jekyll-4.2.1/lib/jekyll/commands/serve.rb:86:in `block (2 levels) in init_with_program&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/mercenary-0.4.0/lib/mercenary/command.rb:221:in `block in execute&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/mercenary-0.4.0/lib/mercenary/command.rb:221:in `each&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/mercenary-0.4.0/lib/mercenary/command.rb:221:in `execute&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/mercenary-0.4.0/lib/mercenary/program.rb:44:in `go&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/mercenary-0.4.0/lib/mercenary.rb:21:in `program&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/jekyll-4.2.1/exe/jekyll:15:in `&amp;lt;top (required)&amp;gt;&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/bin/jekyll:23:in `load&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/bin/jekyll:23:in `&amp;lt;top (required)&amp;gt;&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/bundler-2.2.33/lib/bundler/cli/exec.rb:58:in `load&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/bundler-2.2.33/lib/bundler/cli/exec.rb:58:in `kernel_load&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/bundler-2.2.33/lib/bundler/cli/exec.rb:23:in `run&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/bundler-2.2.33/lib/bundler/cli.rb:479:in `exec&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/bundler-2.2.33/lib/bundler/vendor/thor/lib/thor/command.rb:27:in `run&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/bundler-2.2.33/lib/bundler/vendor/thor/lib/thor/invocation.rb:127:in `invoke_command&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/bundler-2.2.33/lib/bundler/vendor/thor/lib/thor.rb:392:in `dispatch&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/bundler-2.2.33/lib/bundler/cli.rb:31:in `dispatch&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/bundler-2.2.33/lib/bundler/vendor/thor/lib/thor/base.rb:485:in `start&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/bundler-2.2.33/lib/bundler/cli.rb:25:in `start&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/bundler-2.2.33/exe/bundle:49:in `block in &amp;lt;top (required)&amp;gt;&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/bundler-2.2.33/lib/bundler/friendly_errors.rb:103:in `with_friendly_errors&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/gems/bundler-2.2.33/exe/bundle:37:in `&amp;lt;top (required)&amp;gt;&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/bin/bundle:23:in `load&apos;
+	from /Users/yiwen/.gem/ruby/3.0.0/bin/bundle:23:in `&amp;lt;main&amp;gt;&apos;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;抓住重点报错信息  &lt;strong&gt;cannot load such file – webrick (LoadError)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;安装webrick&quot;&gt;安装webrick&lt;/h3&gt;
+
+&lt;p&gt;由于上面报错信息是 没有找到webrick，尝试安装webrick&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air my-awesome-site % gem install webrick
+Fetching webrick-1.7.0.gem
+Successfully installed webrick-1.7.0
+Parsing documentation for webrick-1.7.0
+Installing ri documentation for webrick-1.7.0
+Done installing documentation for webrick after 0 seconds
+1 gem installed
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;安装成功，再次测试运行,还是报错。。。&lt;/p&gt;
+
+&lt;p&gt;百度了下，看到网上的说明&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Ruby3.0.0以上不会再自带webrick, 官网有提到这个问题, 不一定要降低版本, 执行`bundle add webrick`把webrick添加到依赖就可以了, [Quickstart https://jekyllrb.com/docs/](https://jekyllrb.com/docs/),[issue752 https://github.com/github/pages-gem/issues/752](https://github.com/github/pages-gem/issues/752)2 月前回复
+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;尝试运行命令&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;bundle add webrick
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;再次运行，成功。 撒花撒花。九点五十二完成，比预计少了八分钟&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yiwen@yiwens-MacBook-Air my-awesome-site % bundle exec jekyll serve
+Configuration file: /Users/yiwen/my-awesome-site/_config.yml
+            Source: /Users/yiwen/my-awesome-site
+       Destination: /Users/yiwen/my-awesome-site/_site
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+       Jekyll Feed: Generating feed for posts
+                    done in 0.184 seconds.
+ Auto-regeneration: enabled for &apos;/Users/yiwen/my-awesome-site&apos;
+    Server address: http://127.0.0.1:4000/
+  Server running... press ctrl-c to stop.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/Users/yiwen/Library/Application Support/typora-user-images/image-20211212215508623.png&quot; alt=&quot;image-20211212215508623&quot; /&gt;&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">安装jekyll时遇到的问题</summary></entry><entry><title type="html">Welcome to Jekyll!sss</title><link href="http://localhost:4000/jekyll/update/2021/12/12/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!sss" /><published>2021-12-12T21:38:08+08:00</published><updated>2021-12-12T21:38:08+08:00</updated><id>http://localhost:4000/jekyll/update/2021/12/12/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2021/12/12/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;Jekyll requires blog post files to be named according to the following format:&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YEAR-MONTH-DAY-title.MARKUP&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Where &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;YEAR&lt;/code&gt; is a four-digit number, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MONTH&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DAY&lt;/code&gt; are both two-digit numbers, and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MARKUP&lt;/code&gt; is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;Tom&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &apos;Hi, Tom&apos; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html">欢迎jekyll</summary></entry></feed>

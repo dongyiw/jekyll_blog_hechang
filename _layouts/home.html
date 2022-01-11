@@ -1,0 +1,93 @@
+---
+layout: default
+news: [1,2,3]
+---
+<script src="/assets/iconfont.js"></script>
+<div class="home">
+  <!-- {%- if page.title -%}
+    <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%} -->
+
+  {{ content }}
+  <div>
+    <div class='card card-white card-header'>
+      <div class='card-header-left'>
+        <div class='card-header-left-title'>
+          你好，可爱的奋斗人...
+        </div>
+        <div class='card-header-left-article'>
+          <p>用眼泪掺杂着汗水 带着这份与众不同之美</p>
+          <p>笑着继续向前吧</p>
+          <p>气喘吁吁的你 可是比谁都耀眼</p>
+          <p>屏住呼吸 忍辱负重</p>
+          <p>还没到放弃的时候</p>
+          <p>无论尝试多少次 都要努力奔赴明天</p>
+        </div>
+        <div class="card-header-left-follow">
+          <div>关注我：</div>
+          <div class="follow-list">
+            {%- include social.html -%}
+          </div>
+        </div>
+      </div>
+      <div class='card-header-right'>
+        <div class='card-header-right-img'>
+          <img src='/images/music.jpg'>     
+          <a class="card-header-right-img-icon" id="play"><svg class="svg-icon"><use xlink:href="#icon-kaishi"></use></svg></a>
+          <a class="card-header-right-img-icon2" id="stop"><svg class="svg-icon"><use xlink:href="#icon-24gf-pauseCircle"></use></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class='card card-grey'>
+      <div class='card-grey-title' >
+        最新博客
+      </div>
+      <div class='divider'></div>
+      <div class='article-container'>
+        {%- for num in layout.news -%}
+          <div class='article'>
+            <div class='article-img'></div>
+            <div class='article-content'>
+              <div class='article-content-title'>
+                {{ site.posts[num].title | default: "敬请期待..." }}
+              </div>
+              <div class='article-content-date'>
+                {%- if site.posts[num] -%}
+                  {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+                  {{ site.posts[num].date | date: date_format }}
+                {%- endif -%}
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+  <audio id="bgmusic">
+    <source src="/assets/boy.mp3" type="audio/mpeg">
+  </audio>   
+  <!-- {%- if site.posts.size > 0 -%}
+    <h2 class="post-list-heading">{{ page.list_title | default: "标题" }}</h2>
+    
+
+    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
+  {%- endif -%} -->
+
+</div>
+
+
+<script>
+  var play=document.getElementById('play');
+  var stop=document.getElementById('stop');
+  var bgm = document.getElementById('bgmusic');
+  play.onclick = function () {
+    bgm.play();
+    play.style.display = 'none'
+    stop.style.display = 'block'
+  }
+  stop.onclick = function () {
+    bgm.pause();
+    play.style.display = 'block'
+    stop.style.display = 'none'
+  }
+</script>
