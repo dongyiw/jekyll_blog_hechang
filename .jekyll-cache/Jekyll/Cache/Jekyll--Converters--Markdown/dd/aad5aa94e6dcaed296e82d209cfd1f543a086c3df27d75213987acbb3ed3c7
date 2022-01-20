@@ -1,0 +1,86 @@
+I"'<h1 id="windows系统安装教程">Windows系统安装教程</h1>
+
+<blockquote>
+  <p>使用U盘给电脑安装windows操作系统非常容易。</p>
+
+  <p>如下方法不仅适合win10也适合其他任何win系统安装</p>
+</blockquote>
+
+<p><strong>所需工具 以及知识</strong></p>
+
+<ol>
+  <li>
+    <p>U盘： U盘是为了安装U盘启动以及存放系统镜像的工具</p>
+  </li>
+  <li>
+    <p>老毛桃：U盘启动工具。</p>
+  </li>
+  <li>
+    <p>电脑（笔记本/台式机）</p>
+  </li>
+  <li>
+    <p>了解电脑如何设置U盘启动：</p>
+
+    <p>一般电脑通过U盘启动有两种方法：</p>
+
+    <ul>
+      <li>一种是开机直接按快捷键（一般是F12 F11， F10， Del 键这几种），然后选择插入的U盘。</li>
+      <li>另一种就是修改Bios中的硬盘启动顺序（简单的来说就是默认都是从硬盘启动的，你可以修改Bios改成优先从U盘启动）</li>
+    </ul>
+
+    <p><strong>这里我极力推荐第一种方法，因为他足够简单，你所需要的就是百度查看一下如何通过快捷键选择U盘启动，知道了快捷键后，开机一直连续按 快捷键一直等它跳到启动盘选的的界面，界面的样子大概如下所示：</strong></p>
+
+    <p><img src="./images/image-20220119155804928.png" alt="image-20220119155804928" /></p>
+  </li>
+</ol>
+
+<h3 id="老毛桃制作u盘启动">老毛桃制作U盘启动</h3>
+
+<blockquote>
+  <p>教程链接： https://www.bilibili.com/video/BV1bY411b7Hf/</p>
+</blockquote>
+
+<iframe src="//player.bilibili.com/player.html?bvid=BV1bY411b7Hf&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<h4 id="所需材料">所需材料</h4>
+
+<ul>
+  <li>
+    <p>U盘： 8G或者更高</p>
+  </li>
+  <li>
+    <p>老毛桃软件：</p>
+
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 老毛桃下载链接
+https://www.laomaotao.net/
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<p>制作U盘启动的操作，我已录制视频，请查看视频。</p>
+
+<h4 id="获取window10系统镜像">获取window10系统镜像</h4>
+
+<p>这里我放了一个cn_windows_10_business_editions_version_1909版本的迅雷下载链接，将如下链接复制到迅雷即可下载win10镜像。</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ed2k://|file|cn_windows_10_business_editions_version_1909_updated_jan_2020_x64_dvd_b3e1f3a6.iso|5311711232|3527D2A9845FF4105F485CC364655B66|/
+</code></pre></div></div>
+
+<p>如果你的电脑没有迅雷，如下是迅雷官网下载链接：</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code># 迅雷下载链接
+https://www.xunlei.com/
+</code></pre></div></div>
+
+<p>下载完成后，将文件复制到U盘中即可。</p>
+
+<h3 id="电脑安装win10操作系统">电脑安装win10操作系统</h3>
+
+<p><strong>安装过程请查看如下视频，非常详细，没有放过任何细节。</strong></p>
+
+<blockquote>
+  <p>教程链接： https://www.bilibili.com/video/BV1ym4y1U7aG/</p>
+</blockquote>
+
+<iframe src="//player.bilibili.com/player.html?bvid=BV1ym4y1U7aG&amp;page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+:ET

@@ -18,19 +18,20 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: 禾肠不想改变自己
+title: 禾肠不想改变
 email: civen.dong@foxmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  禾肠的个人博客，采用Jekyll工具生成。
+  采菊东篱下，悠然见南山。
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
 github_username:  jekyll
 qq_account: 1136192942
 wechat_account: dldl375
+bili_link: https://space.bilibili.com/539612963
 
 # Build settings
-theme: minima
+theme: minima   #添加主题
 plugins:
   - jekyll-feed
 sass:

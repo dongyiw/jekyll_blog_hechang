@@ -3,32 +3,9 @@ layout: default
 ---
 <article class="layout-page" id="post">
   <div class="layout-page-container">
-    <header class="layout-page-header">
-      <h1 class="layout-page-header-title">{{ page.title | escape }}</h1>
-    </header>
-  
+    <header class="layout-page-header"></header>
     <div class="layout-page-content">
       {{ content }}
     </div>
   </div>
 </article>
-
-<script>
-  window.onload=function(){
-    var header = document.getElementById('header')
-    var footer = document.getElementById('footer')
-    var post = document.getElementById('post')
-    post.style.height = window.innerHeight - header.offsetHeight - footer.offsetHeight + 'px'
-    window.addEventListener("resize", function(){
-      var header = document.getElementById('header')
-      var footer = document.getElementById('footer')
-      post.style.height = window.innerHeight - header.offsetHeight - footer.offsetHeight + 'px'
-      console.log(header.offsetHeight)
-      console.log(footer.offsetHeight)
-      console.log('**')
-      console.log(window.innerHeight)
-      console.log('**')
-    });
-  }
-  
-</script>

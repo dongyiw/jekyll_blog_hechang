@@ -2,12 +2,75 @@
  * layout: page
  */
 .layout-page{
-    overflow: auto;
     &-container{
         max-width: 1200px;
         width: 100%;
         margin: 0 auto;
-        padding: 0 2rem;
         box-sizing: border-box;
     }
 }
+
+/**
+ * Posts
+ */
+ .post {
+    padding: 0 3rem;
+  }
+
+
+  /**
+  * csdn人物
+  */
+  #live2dcanvas{
+      border: none !important;
+  }
+
+
+/**
+ * Posts
+ */
+.post {
+    overflow: auto;
+  }
+  .post-header {
+    margin: 0 auto;
+  }
+  
+  .post-title {
+    @include relative-font-size(2.625);
+    letter-spacing: -1px;
+    line-height: 1;
+  
+    @include media-query($on-laptop) {
+      @include relative-font-size(2.25);
+    }
+  }
+  
+  .post-content {
+    margin-bottom: $spacing-unit;
+  
+    h2 {
+      @include relative-font-size(2);
+  
+      @include media-query($on-laptop) {
+        @include relative-font-size(1.75);
+      }
+    }
+  
+    h3 {
+      @include relative-font-size(1.625);
+  
+      @include media-query($on-laptop) {
+        @include relative-font-size(1.375);
+      }
+    }
+  
+    h4 {
+      @include relative-font-size(1.25);
+  
+      @include media-query($on-laptop) {
+        @include relative-font-size(1.125);
+      }
+    }
+  }
+  

@@ -1,6 +1,9 @@
 ---
 layout: default
-news: [1,2,3]
+news: [{num: 0, url: '/images/blog_bg9.jpeg'},
+      {num: 1, url: '/images/blog_bg8.jpeg'},
+      {num: 2, url: '/images/blog_bg7.jpeg'}]
+spcial_name: Jekyll搭建个人博客
 ---
 <script src="/assets/iconfont.js"></script>
 <div class="home">
@@ -13,15 +16,16 @@ news: [1,2,3]
     <div class='card card-white card-header'>
       <div class='card-header-left'>
         <div class='card-header-left-title'>
-          你好，可爱的奋斗人...
+          你好...
         </div>
         <div class='card-header-left-article'>
-          <p>用眼泪掺杂着汗水 带着这份与众不同之美</p>
-          <p>笑着继续向前吧</p>
-          <p>气喘吁吁的你 可是比谁都耀眼</p>
-          <p>屏住呼吸 忍辱负重</p>
-          <p>还没到放弃的时候</p>
-          <p>无论尝试多少次 都要努力奔赴明天</p>
+          <p>2017年毕业时就说做一个自己的博客了</p>
+          <p>时光匆匆 荏苒回头又一年</p>
+          <p>一晃都快五年过去</p>
+          <p>都已不记得大学的宿舍编号</p>
+          <p>2021年的开始，也算是把曾经欠下的账还上了</p>
+          <p>下面专栏，有我呕心沥血的搭建过程</p>
+          <p>想做博客网站，没那么复杂，相信你一定可以</p>
         </div>
         <div class="card-header-left-follow">
           <div>关注我：</div>
@@ -31,8 +35,8 @@ news: [1,2,3]
         </div>
       </div>
       <div class='card-header-right'>
-        <div class='card-header-right-img'>
-          <img src='/images/music.jpg'>     
+        <div class='card-header-right-img' id="musicContainer">
+          <img src='/images/music.jpg' class="card-header-right-img-img" id="music">     
           <a class="card-header-right-img-icon" id="play"><svg class="svg-icon"><use xlink:href="#icon-kaishi"></use></svg></a>
           <a class="card-header-right-img-icon2" id="stop"><svg class="svg-icon"><use xlink:href="#icon-24gf-pauseCircle"></use></svg></a>
         </div>
@@ -44,21 +48,67 @@ news: [1,2,3]
       </div>
       <div class='divider'></div>
       <div class='article-container'>
-        {%- for num in layout.news -%}
+        {%- for item in layout.news -%}
           <div class='article'>
-            <div class='article-img'></div>
+            <div class='article-img'>
+              <img src='{{item.url}}' >     
+            </div>
             <div class='article-content'>
               <div class='article-content-title'>
-                {{ site.posts[num].title | default: "敬请期待..." }}
+                {%- if site.posts[item.num].title -%}
+                <a href="{{ site.posts[item.num].url }}">
+                  {{ site.posts[item.num].title}}
+                </a>
+                {%- else -%}
+                敬请期待...
+                {%- endif -%}
               </div>
               <div class='article-content-date'>
-                {%- if site.posts[num] -%}
+                {%- if site.posts[item.num] -%}
                   {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-                  {{ site.posts[num].date | date: date_format }}
+                  {{ site.posts[item.num].date | date: date_format }}
                 {%- endif -%}
               </div>
             </div>
           </div>
+        {%- endfor -%}
+      </div>
+    </div>
+    <div class='card card-grey'>
+      <div class='card-grey-title' >
+        专栏：{{ layout.spcial_name }}
+      </div>
+      <div class='divider'></div>
+      <div class='article-container'>
+        {% assign articleNumber = 0 %}
+        {% assign postReverse = site.posts | reverse %}
+        {%- for post in postReverse -%}
+        <!-- 添加articleNumber，用于只显示三条信息。 这里注意Liquid中没有‘+’‘-’这样的符号，要实现+ 要用plus：1 -->
+          {%- if post.special_column == layout.spcial_name and articleNumber <3 -%}
+          {% assign articleNumber = articleNumber | plus : 1 %}
+          <div class='article'>
+            <div class='article-img'>
+              <img src='/images/blog_bg5.jpeg' >     
+            </div>
+            <div class='article-content'>
+              <div class='article-content-title'>
+                {%- if post.title -%}
+                <a href="{{ post.url }}">
+                  {{ post.title}}
+                </a>
+                {%- else -%}
+                敬请期待...
+                {%- endif -%}
+              </div>
+              <div class='article-content-date'>
+                {%- if post -%}
+                  {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+                  {{ post.date | date: date_format }}
+                {%- endif -%}
+              </div>
+            </div>
+          </div>
+          {%- endif -%}
         {%- endfor -%}
       </div>
     </div>
@@ -80,14 +130,22 @@ news: [1,2,3]
   var play=document.getElementById('play');
   var stop=document.getElementById('stop');
   var bgm = document.getElementById('bgmusic');
+  var music = document.getElementById('music')
+  var musicContainer = document.getElementById('musicContainer')
   play.onclick = function () {
     bgm.play();
     play.style.display = 'none'
     stop.style.display = 'block'
+    music.classList.add('rotate-20')
+    music.classList.add('card-header-right-img-img-rotate')
+    musicContainer.classList.add('card-header-right-img-rotate')
   }
   stop.onclick = function () {
     bgm.pause();
     play.style.display = 'block'
     stop.style.display = 'none'
+    music.classList.remove('rotate-20')
+    music.classList.remove('card-header-right-img-img-rotate')
+    musicContainer.classList.remove('card-header-right-img-rotate')
   }
 </script>

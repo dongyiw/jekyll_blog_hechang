@@ -1,8 +1,9 @@
 <script src="/assets/iconfont.js"></script>
 <ul class="socical-list">
-  <li><a><svg class="svg-icon"><use xlink:href="#icon-weixin"></use></svg> </a></li>
-  <li><a><svg class="svg-icon"><use xlink:href="#icon-QQ-circle-fill"></use></svg> </a></li>
-  <li><a href="https://github.com/{{ site.github_username| cgi_escape | escape }}"><svg class="svg-icon"><use xlink:href="#icon-bilibili1"></use></svg> </a></li>
+  <li onclick="showDialog('wechat')"><a><svg class="svg-icon"><use xlink:href="#icon-weixin"></use></svg> </a></li>
+  <li onclick="showDialog('qq')"><a><svg class="svg-icon"><use xlink:href="#icon-QQ-circle-fill"></use></svg> </a></li>
+  <li><a href="{{ site.bili_link }}" target="_blank"><svg class="svg-icon"><use xlink:href="#icon-bilibili1"></use></svg> </a></li>
+  <li><a href="https://github.com/{{ site.github_username| cgi_escape | escape }}" target="_blank"><svg class="svg-icon"><use xlink:href="#icon-github-fill"></use></svg> </a></li>
 </ul>
 <style type="text/css">
 .socical-list{
@@ -16,5 +17,6 @@
   margin-right: 2rem;
   font-size: 3rem;
   list-style: none;
+  cursor: pointer;
 }
 </style>
